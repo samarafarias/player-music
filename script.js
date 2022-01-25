@@ -1,5 +1,5 @@
 let musicas = [
-    {titulo:'Thiking about you' , artista : 'Frank ocean', src: 'music/frankocean.mp3', img :'img/frank.jpg'},
+    {titulo:'Thinkin about you' , artista : 'Frank ocean', src: 'music/frankocean.mp3', img :'img/frank.jpg'},
     {titulo:'Friday' , artista : 'The cure', src: 'music/thecure.mp3', img :'img/thecure.jpg'},
     {titulo:'1979' , artista : 'The smashing pumpkins', src: 'music/thesmashingpumpkins.mp3', img :'img/smashing.jpg'},  
 ];
