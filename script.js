@@ -28,6 +28,7 @@ document.querySelector('.anterior').addEventListener('click', () => {
         indexMusica = 2;
     }
     renderizarMusica(indexMusica);
+    tocarmusica();
 
 });
 
