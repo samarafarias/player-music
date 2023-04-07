@@ -37,7 +37,7 @@ document.querySelector('.proxima').addEventListener('click', () => {
         indexMusica = 0;
     }
     renderizarMusica(indexMusica);
-
+    tocarmusica();
 });
 
 function renderizarMusica(index){
