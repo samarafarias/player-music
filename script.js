@@ -6,10 +6,7 @@ let musicas = [
 
 let musica = document.querySelector('audio');
 let indexMusica = 0;
-
 let duracaoMusica = document.querySelector('.fim');
-/* duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration)); */
-
 let imagem = document.querySelector('img');
 let nomeMusica = document.querySelector('.descricao h2');
 let nomeArtista = document.querySelector('.descricao i');
@@ -29,7 +26,7 @@ document.querySelector('.anterior').addEventListener('click', () => {
     }
     renderizarMusica(indexMusica);
     tocarmusica();
-
+    exibirProximaMusica();
 });
 
 document.querySelector('.proxima').addEventListener('click', () => {
@@ -39,6 +36,7 @@ document.querySelector('.proxima').addEventListener('click', () => {
     }
     renderizarMusica(indexMusica);
     tocarmusica();
+    exibirProximaMusica();
 });
 
 function renderizarMusica(index){
@@ -49,7 +47,7 @@ function renderizarMusica(index){
         imagem.src = musicas[index].img;
         duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
     });
-    
+    exibirProximaMusica();
 }
 
 function tocarmusica(){
@@ -58,18 +56,15 @@ function tocarmusica(){
     document.querySelector('.botao-play').style.display = 'none';
 }
 
-
 function pausarmusica(){
     musica.pause();
     document.querySelector('.botao-pause').style.display = 'none';
     document.querySelector('.botao-play').style.display = 'block';
 }
 
-
 function atualizarBarra(){
     let barra = document.querySelector('progress');
     barra.style.width = Math.floor((musica.currentTime / musica.duration) * 100) + '%';
-     
     let tempoDecorrido = document.querySelector('.inicio');
     tempoDecorrido.textContent = segundosParaMinutos( Math.floor(musica.currentTime));
 }
@@ -83,5 +78,17 @@ function segundosParaMinutos(segundos){
     }
 
     return campoMinuto+':'+campoSegundo;
+}
+
+function exibirProximaMusica(){
+    let proxima = indexMusica+1;
+    if (proxima > 2){
+        proxima = 0;
+    }
+
+    let nomeProxima = musicas[proxima].titulo;
+    let nomeArtista = musicas[proxima].artista;
+    let nomeProximaMusica = document.querySelector(".proximaMusica");
+    nomeProximaMusica.textContent = 'Próxima música : ' + nomeProxima + ' - ' + nomeArtista;
 }
 
