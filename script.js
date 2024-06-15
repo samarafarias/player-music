@@ -1,5 +1,5 @@
 let musicas = [
-    {titulo:'Thinkin about you' , artista : 'Frank ocean', src: 'music/frankocean.mp3', img :'img/frank.jpg'},
+    {titulo:'Thinkin Bout You' , artista : 'Frank ocean', src: 'music/frankocean.mp3', img :'img/frank.jpg'},
     {titulo:'Friday' , artista : 'The cure', src: 'music/thecure.mp3', img :'img/thecure.jpg'},
     {titulo:'1979' , artista : 'The smashing pumpkins', src: 'music/thesmashingpumpkins.mp3', img :'img/smashing.jpg'},  
 ];
@@ -80,15 +80,24 @@ function segundosParaMinutos(segundos){
     return campoMinuto+':'+campoSegundo;
 }
 
-function exibirProximaMusica(){
-    let proxima = indexMusica+1;
-    if (proxima > 2){
+function exibirProximaMusica() {
+
+    let imagemProximaMusica = document.querySelector(".imagemProximaMusica");
+    let nomeProximaMusica = document.querySelector(".proximaMusica");
+
+    let proxima = indexMusica + 1;
+    if (proxima >= musicas.length) {
         proxima = 0;
     }
 
     let nomeProxima = musicas[proxima].titulo;
     let nomeArtista = musicas[proxima].artista;
-    let nomeProximaMusica = document.querySelector(".proximaMusica");
-    nomeProximaMusica.textContent = 'Próxima música : ' + nomeProxima + ' - ' + nomeArtista;
+    let imagem = musicas[proxima].img;
+    
+    imagemProximaMusica.src = imagem;
+    nomeProximaMusica.innerHTML = `Próxima música : 
+    <img id="imgProxima" src="${imagem}" alt="Imagem da próxima música"> 
+    ${nomeProxima} - ${nomeArtista}`;
+
 }
 
